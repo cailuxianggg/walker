@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/nebpay.js@0.2.0/nebpay.min.js"></script> -->
+  </head>
+  <body>
+    <div id="ttt">1112</div>
+    <script  type="text/javascript">
+      window.location.href('openapp.NASnano://virtual?params={"category":"jump","des":"confirmTransfer","pageParams":{"serialNumber":"s85sSgL8LyxfdKyX252YMlkRH3RVR75o","goods":{"name":"","desc":"","orderId":"","ext":""},"pay":{"currency":"NAS","to":"n22MKB3xyHV8kBSYZUAjfTFA5BSCzwF97wY","value":"0","payload":{"type":"call","function":"login","args":"[]"}},"callback":"https://pay.nebulas.io/api/mainnet/pay"}}')
+      // var NebPay = require("nebpay");
+      // var nebPay = new NebPay();
+      $(function() {
+        function awaitPostMessage() {
+          var isReactNativePostMessageReady = !!window.originalPostMessage;
+          var queue = [];
+          var currentPostMessageFn = function store(message) {
+            if (queue.length > 100) queue.shift();
+            queue.push(message);
+          };
+          if (!isReactNativePostMessageReady) {
+            var originalPostMessage = window.postMessage;
+            Object.defineProperty(window, 'postMessage', {
+              configurable: true,
+              enumerable: true,
+              get: function () {
+                return currentPostMessageFn;
+              },
+              set: function (fn) {
+                currentPostMessageFn = fn;
+                isReactNativePostMessageReady = true;
+                setTimeout(sendQueue, 0);
+              }
+            });
+            window.postMessage.toString = function () {
+              return String(originalPostMessage);
+            };
+          }
+
+          function sendQueue() {
+            while (queue.length > 0) window.postMessage(queue.shift());
+          }
+        };
+        awaitPostMessage(); // Call this only once in your Web Code.
+      window.postMessage(10)
+          })
+    </script>
+  </body>
+</html>

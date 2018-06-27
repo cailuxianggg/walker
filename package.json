@@ -1,0 +1,20 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "dependencies": {
+    "@expo/samples": "2.1.1",
+    "expo": "^28.0.0",
+    "moment": "^2.22.2",
+    "nebpay.js": "^0.2.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-28.0.0.tar.gz",
+    "react-native-card-view": "^0.0.3",
+    "react-native-circular-progress": "^0.2.0",
+    "react-native-loading-spinner-overlay": "^0.5.2",
+    "react-native-sensor-manager": "^0.1.10",
+    "react-native-sleek-loading-indicator": "^0.1.3",
+    "react-native-step-indicator": "^0.0.8",
+    "react-navigation": "^2.3.1",
+    "rn-nebpay": "^0.2.0"
+  }
+}
